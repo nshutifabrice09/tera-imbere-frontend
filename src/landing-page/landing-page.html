@@ -15,7 +15,7 @@
         <span class="brand-name">Tera Imbere</span>
       </div>
       
-      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen" aria-label="Toggle menu">
         <span></span>
         <span></span>
         <span></span>
@@ -39,7 +39,7 @@
     <div class="hero-content">
       <div class="hero-badge">Powered by Spring Boot Technology</div>
       <h1 class="hero-title">
-        Banking Built for
+        Banking Built for<br>
         <span class="gradient-text">Modern Business</span>
       </h1>
       <p class="hero-subtitle">
@@ -72,7 +72,9 @@
       
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of features">
-          <div class="feature-icon" [innerHTML]="getIconSvg(feature.icon)"></div>
+          <div class="feature-icon-wrapper">
+            <div class="feature-icon" [innerHTML]="getIconSvg(feature.icon)"></div>
+          </div>
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-description">{{ feature.description }}</p>
         </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-landing',
@@ -70,6 +71,8 @@ export class LandingPage implements OnInit {
   currentYear = new Date().getFullYear();
   isMenuOpen = false;
 
+  constructor(private sanitizer: DomSanitizer) {}
+
   ngOnInit(): void {
   }
 
@@ -85,7 +88,7 @@ export class LandingPage implements OnInit {
     }
   }
 
-  getIconSvg(iconName: string): string {
+  getIconSvg(iconName: string): SafeHtml {
     const icons: { [key: string]: string } = {
       shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
       users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
@@ -94,6 +97,6 @@ export class LandingPage implements OnInit {
       chart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>`,
       globe: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
     };
-    return icons[iconName] || '';
+    return this.sanitizer.bypassSecurityTrustHtml(icons[iconName] || '');
   }
 }
