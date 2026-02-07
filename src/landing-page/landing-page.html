@@ -1,1 +1,264 @@
-<p>landing-page works!</p>
+<div class="landing-page">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+          <path d="M20 5L35 12V20C35 28 20 35 20 35C20 35 5 28 5 20V12L20 5Z" stroke="currentColor" stroke-width="2.5" fill="url(#logoGradient)"/>
+          <defs>
+            <linearGradient id="logoGradient" x1="5" y1="5" x2="35" y2="35">
+              <stop offset="0%" stop-color="#1a4d80"/>
+              <stop offset="100%" stop-color="#2d6fa8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="brand-name">Tera Imbere</span>
+      </div>
+      
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" [class.active]="isMenuOpen">
+        <a (click)="scrollToSection('features')" class="nav-link">Features</a>
+        <a (click)="scrollToSection('security')" class="nav-link">Security</a>
+        <a (click)="scrollToSection('testimonials')" class="nav-link">Testimonials</a>
+        <a (click)="scrollToSection('contact')" class="nav-link">Contact</a>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Powered by Spring Boot Technology</div>
+      <h1 class="hero-title">
+        Banking Built for
+        <span class="gradient-text">Modern Business</span>
+      </h1>
+      <p class="hero-subtitle">
+        Experience the perfect fusion of security, efficiency, and user-friendly design. 
+        Tera Imbere streamlines personal and small business finance management with 
+        enterprise-grade reliability.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-large">Open an Account</button>
+        <button class="btn btn-secondary btn-large">Watch Demo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item" *ngFor="let stat of stats">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Comprehensive Banking Solutions</h2>
+        <p class="section-subtitle">
+          Every feature designed with precision to meet the demands of modern financial management
+        </p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card" *ngFor="let feature of features">
+          <div class="feature-icon" [innerHTML]="getIconSvg(feature.icon)"></div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Section -->
+  <section id="security" class="security-section">
+    <div class="section-container">
+      <div class="security-content">
+        <div class="security-visual">
+          <div class="security-shield">
+            <svg viewBox="0 0 200 200" fill="none">
+              <path d="M100 20L170 45V95C170 135 100 170 100 170C100 170 30 135 30 95V45L100 20Z" 
+                    stroke="url(#shieldGradient)" stroke-width="3" fill="url(#shieldFill)"/>
+              <circle cx="100" cy="95" r="25" fill="url(#centerGradient)"/>
+              <path d="M90 95L97 102L110 89" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="shieldGradient" x1="30" y1="20" x2="170" y2="170">
+                  <stop offset="0%" stop-color="#1a4d80"/>
+                  <stop offset="100%" stop-color="#2d6fa8"/>
+                </linearGradient>
+                <linearGradient id="shieldFill" x1="30" y1="20" x2="170" y2="170">
+                  <stop offset="0%" stop-color="rgba(26, 77, 128, 0.1)"/>
+                  <stop offset="100%" stop-color="rgba(45, 111, 168, 0.05)"/>
+                </linearGradient>
+                <radialGradient id="centerGradient">
+                  <stop offset="0%" stop-color="#2d6fa8"/>
+                  <stop offset="100%" stop-color="#1a4d80"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="security-details">
+          <h2 class="section-title">Security You Can Trust</h2>
+          <p class="security-intro">
+            Built on a foundation of enterprise-grade security protocols, Tera Imbere 
+            employs multiple layers of protection to safeguard your financial data.
+          </p>
+          
+          <div class="security-features">
+            <div class="security-item">
+              <div class="security-number">01</div>
+              <div class="security-info">
+                <h4>Advanced Encryption</h4>
+                <p>256-bit AES encryption ensures your data remains secure both in transit and at rest.</p>
+              </div>
+            </div>
+            
+            <div class="security-item">
+              <div class="security-number">02</div>
+              <div class="security-info">
+                <h4>Fraud Detection</h4>
+                <p>AI-powered monitoring systems identify and prevent suspicious activities in real-time.</p>
+              </div>
+            </div>
+            
+            <div class="security-item">
+              <div class="security-number">03</div>
+              <div class="security-info">
+                <h4>Compliance Standards</h4>
+                <p>Fully compliant with international banking regulations and data protection laws.</p>
+              </div>
+            </div>
+            
+            <div class="security-item">
+              <div class="security-number">04</div>
+              <div class="security-info">
+                <h4>Secure Authentication</h4>
+                <p>Multi-factor authentication and biometric options provide robust access control.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Trusted by Businesses and Individuals</h2>
+        <p class="section-subtitle">
+          Hear from those who've transformed their financial management with Tera Imbere
+        </p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="quote-icon">"</div>
+          <p class="testimonial-quote">{{ testimonial.quote }}</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">{{ testimonial.author.charAt(0) }}</div>
+            <div class="author-info">
+              <div class="author-name">{{ testimonial.author }}</div>
+              <div class="author-role">{{ testimonial.role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Transform Your Banking Experience?</h2>
+      <p class="cta-subtitle">
+        Join thousands of satisfied customers who trust Tera Imbere for their financial management needs.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn btn-primary btn-large">Open Your Account Today</button>
+        <button class="btn btn-outline btn-large">Schedule a Consultation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <div class="footer-brand">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+              <path d="M20 5L35 12V20C35 28 20 35 20 35C20 35 5 28 5 20V12L20 5Z" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+            <span class="brand-name">Tera Imbere</span>
+          </div>
+          <p class="footer-description">
+            Secure, efficient banking solutions for personal and business financial management.
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-heading">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#api">API Documentation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#press">Press Kit</a></li>
+            <li><a href="#partners">Partners</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#status">System Status</a></li>
+            <li><a href="#community">Community</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Service</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+            <li><a href="#licenses">Licenses</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">© {{ currentYear }} Tera Imbere. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+          <a href="#" class="social-link" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
