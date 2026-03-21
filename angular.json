@@ -6,6 +6,11 @@
     "analytics": "5824512b-5ca6-4f59-86dd-3b04e1b16c41"
   },
   "newProjectRoot": "projects",
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
   "projects": {
     "tera-imbere-frontend": {
       "projectType": "application",

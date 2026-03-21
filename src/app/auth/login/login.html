@@ -1,0 +1,30 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="brand-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect x="1" y="9" width="18" height="2" rx="1" fill="#5DCAA5"/>
+          <rect x="9" y="1" width="2" height="18" rx="1" fill="#5DCAA5"/>
+        </svg>
+      </div>
+      <h1>Tera Imbere</h1>
+      <p>Secure banking, made simple</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="email">Account number or email</label>
+        <input id="email" type="email" formControlName="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password</label>
+        <input id="pwd" type="password" formControlName="password" autocomplete="current-password">
+      </div>
+      <p *ngIf="error" class="error-msg">{{ error }}</p>
+      <button type="submit" class="primary-btn" [disabled]="loading || form.invalid">
+        {{ loading ? 'Signing in…' : 'Sign in' }}
+      </button>
+    </form>
+    <p class="helper-text">Forgot password? <a routerLink="/reset">Reset it</a></p>
+  </div>
+</div>
