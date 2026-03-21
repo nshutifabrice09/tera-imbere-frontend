@@ -1,0 +1,79 @@
+@use 'sass:color';
+
+// Brand tokens
+:root {
+  --ti-green-900: #085041;
+  --ti-green-700: #0F6E56;
+  --ti-green-500: #1D9E75;
+  --ti-green-300: #5DCAA5;
+  --ti-green-50:  #E1F5EE;
+  --ti-bg: #f5f5f3;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px; line-height: 1.5;
+  background: var(--ti-bg); color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Global form controls
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+select,
+textarea {
+  width: 100%;
+  padding: 9px 11px;
+  border: 0.5px solid rgba(0,0,0,0.18);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+  appearance: none;
+  &:focus { border-color: #1D9E75; box-shadow: 0 0 0 3px rgba(29,158,117,0.12); }
+  &::placeholder { color: #bbb; }
+}
+select { background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 28px; }
+
+.form-group { margin-bottom: 14px; label { display: block; font-size: 12px; color: #666; margin-bottom: 5px; } }
+.form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+              @media (max-width: 480px) { grid-template-columns: 1fr; } }
+
+// Buttons
+.primary-btn {
+  width: 100%; padding: 12px; border: none; border-radius: 8px;
+  background: var(--ti-green-900); color: var(--ti-green-50);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  &:hover    { background: var(--ti-green-700); }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+.secondary-btn {
+  width: 100%; padding: 11px; border-radius: 8px;
+  background: #f0efea; border: 0.5px solid rgba(0,0,0,0.12);
+  font-size: 14px; cursor: pointer;
+  &:hover { background: #e8e8e4; }
+}
+
+// Shared card
+.form-card {
+  background: #fff; border-radius: 12px;
+  border: 0.5px solid rgba(0,0,0,0.1); padding: 20px;
+}
+
+// Transactions list
+.tx-list {
+  background: #fff; border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: 12px; overflow: hidden;
+}
+
+// Utility
+.error-msg { font-size: 13px; color: #c0392b; margin-bottom: 10px; }
+.empty-state { padding: 24px; text-align: center; color: #888; font-size: 13px; }

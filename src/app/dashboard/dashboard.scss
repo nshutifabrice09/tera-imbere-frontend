@@ -1,0 +1,107 @@
+.balance-card {
+  background: #085041;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+  color: #E1F5EE;
+
+  .bal-label  { font-size: 11px; color: #5DCAA5; margin-bottom: 4px; }
+  .bal-amount { font-size: 26px; font-weight: 500; margin-bottom: 14px; }
+
+  .bal-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    div   { display: flex; flex-direction: column; gap: 2px; }
+    small { font-size: 10px; color: #5DCAA5; }
+    span  { font-size: 12px; color: #9FE1CB; }
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    .stat-card:last-child { grid-column: 1 / -1; }
+  }
+}
+
+.stat-card {
+  background: #f0efea;
+  border-radius: 8px;
+  padding: 13px 14px;
+
+  .stat-label { font-size: 12px; color: #666; margin-bottom: 3px; }
+  .stat-val   { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+
+  .stat-delta {
+    font-size: 11px;
+    margin-top: 3px;
+    &.positive { color: #0F6E56; }
+    &.negative { color: #c0392b; }
+    &.muted    { color: #888; }
+  }
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media (max-width: 480px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.qa-item {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 12px 8px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #555;
+  font-size: 12px;
+
+  &:hover { background: #f5f5f3; }
+
+  .qa-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #E1F5EE;
+    margin: 0 auto 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h3 { font-size: 14px; font-weight: 500; color: #1a1a1a; }
+  a  { font-size: 12px; color: #0F6E56; text-decoration: none; }
+}
+
+.tx-list {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}

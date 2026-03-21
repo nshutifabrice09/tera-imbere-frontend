@@ -1,1 +1,33 @@
-<p>accounts works!</p>
+<div class="page-header">
+  <h2>My accounts</h2>
+  <p>Manage all your Tera Imbere accounts</p>
+</div>
+
+@if (loading) {
+  <p class="loading">Loading accounts...</p>
+}
+
+@if (!loading) {
+  <div class="acc-grid">
+    @for (acc of accounts; track acc.id) {
+      <div class="acc-card">
+        <div class="acc-type">{{ acc.type | titlecase }} account</div>
+        <div class="acc-number">{{ acc.accountNumber }}</div>
+        <div class="acc-balance">{{ banking.formatRWF(acc.balance) }}</div>
+        <span [class]="'acc-badge ' + acc.status">
+          {{ acc.status | titlecase }}
+        </span>
+      </div>
+    }
+
+    <div class="acc-card add-card" routerLink="/settings">
+      <div class="add-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+             stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M8 2v12M2 8h12"/>
+        </svg>
+      </div>
+      <span>Open new account</span>
+    </div>
+  </div>
+}

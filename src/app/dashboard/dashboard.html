@@ -1,1 +1,92 @@
-<p>dashboard works!</p>
+<div class="balance-card">
+  <p class="bal-label">Total balance</p>
+  <h2 class="bal-amount">{{ banking.formatRWF(totalBalance) }}</h2>
+  @if (primaryAccount) {
+    <div class="bal-meta">
+      <div>
+        <small>Account no.</small>
+        <span>{{ primaryAccount.accountNumber }}</span>
+      </div>
+      <div>
+        <small>Type</small>
+        <span>Savings &amp; current</span>
+      </div>
+      <div>
+        <small>Status</small>
+        <span>Active</span>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <p class="stat-label">Savings balance</p>
+    <p class="stat-val">{{ banking.formatRWF(savingsBalance) }}</p>
+    <p class="stat-delta positive">+5.2% this month</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Monthly spending</p>
+    <p class="stat-val">{{ banking.formatRWF(monthlySpend) }}</p>
+    <p class="stat-delta negative">+12% vs last month</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Loan outstanding</p>
+    <p class="stat-val">{{ banking.formatRWF(loanOutstanding) }}</p>
+    <p class="stat-delta muted">Next payment Mar 30</p>
+  </div>
+</div>
+
+<div class="quick-actions">
+  <a routerLink="/transfer" class="qa-item">
+    <div class="qa-icon">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+           stroke="#085041" stroke-width="1.5" stroke-linecap="round">
+        <path d="M2 7h9M8 4l3 3-3 3"/>
+      </svg>
+    </div>
+    <span>Send money</span>
+  </a>
+  <div class="qa-item">
+    <div class="qa-icon">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+           stroke="#085041" stroke-width="1.5" stroke-linecap="round">
+        <path d="M12 7H3M6 4L3 7l3 3"/>
+      </svg>
+    </div>
+    <span>Receive</span>
+  </div>
+  <div class="qa-item">
+    <div class="qa-icon">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+           stroke="#085041" stroke-width="1.5" stroke-linecap="round">
+        <rect x="1.5" y="3.5" width="11" height="7" rx="1"/>
+        <path d="M1.5 6.5h11"/>
+      </svg>
+    </div>
+    <span>Pay bills</span>
+  </div>
+  <div class="qa-item">
+    <div class="qa-icon">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+           stroke="#085041" stroke-width="1.5" stroke-linecap="round">
+        <path d="M7 2v10M4 7h6"/>
+      </svg>
+    </div>
+    <span>Deposit</span>
+  </div>
+</div>
+
+<div class="section-header">
+  <h3>Recent transactions</h3>
+  <a routerLink="/transactions">View all</a>
+</div>
+
+<div class="tx-list">
+  @for (tx of recentTx; track tx.id) {
+    <app-transaction-row [tx]="tx" />
+  }
+  @empty {
+    <p class="empty-state">No recent transactions.</p>
+  }
+</div>

@@ -1,0 +1,65 @@
+.tx-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 15px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.07);
+
+  &:last-child { border-bottom: none; }
+}
+
+.tx-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tx-info {
+  flex: 1;
+  min-width: 0;
+
+  .tx-desc {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a1a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tx-date {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+  }
+}
+
+.tx-right {
+  text-align: right;
+  flex-shrink: 0;
+
+  .tx-amount {
+    font-size: 13px;
+    font-weight: 500;
+    &.credit { color: #0F6E56; }
+    &.debit  { color: #c0392b; }
+  }
+
+  .tx-badge {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 2px;
+    &.credit { background: #e1f5ee; color: #0F6E56; }
+    &.debit  { background: #fdecea; color: #c0392b; }
+  }
+}
+
+@media (max-width: 380px) {
+  .tx-badge { display: none; }
+}
