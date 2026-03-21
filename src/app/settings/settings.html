@@ -1,1 +1,85 @@
-<p>settings works!</p>
+<div class="page-header">
+  <h2>Settings</h2>
+  <p>Manage your account preferences</p>
+</div>
+
+@if (banking.currentUser(); as user) {
+  <div class="profile-card">
+    <div class="avatar">{{ user.initials }}</div>
+    <div class="profile-info">
+      <span class="profile-name">{{ user.name }}</span>
+      <span class="profile-email">{{ user.email }}</span>
+      <span class="profile-type">{{ user.accountType | titlecase }} account</span>
+    </div>
+  </div>
+}
+
+<div class="settings-list">
+  <div class="settings-item">
+    <div class="item-left">
+      <div class="item-icon">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+             stroke="#085041" stroke-width="1.4" stroke-linecap="round">
+          <circle cx="7.5" cy="5" r="3"/>
+          <path d="M1.5 14c0-3.314 2.686-5 6-5s6 1.686 6 5"/>
+        </svg>
+      </div>
+      <div>
+        <p class="item-title">Profile</p>
+        <p class="item-sub">Update your personal information</p>
+      </div>
+    </div>
+    <div class="item-arrow">›</div>
+  </div>
+
+  <div class="settings-item">
+    <div class="item-left">
+      <div class="item-icon">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+             stroke="#085041" stroke-width="1.4" stroke-linecap="round">
+          <rect x="2" y="6" width="11" height="7.5" rx="1.2"/>
+          <path d="M5 6V4.5a2.5 2.5 0 0 1 5 0V6"/>
+        </svg>
+      </div>
+      <div>
+        <p class="item-title">Security &amp; password</p>
+        <p class="item-sub">Manage credentials and 2FA</p>
+      </div>
+    </div>
+    <div class="item-arrow">›</div>
+  </div>
+
+  <div class="settings-item">
+    <div class="item-left">
+      <div class="item-icon">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+             stroke="#085041" stroke-width="1.4" stroke-linecap="round">
+          <path d="M7.5 1.5a5 5 0 0 1 5 5v2l1 2.5H1.5L2.5 8.5v-2a5 5 0 0 1 5-5z"/>
+          <path d="M6 12.5a1.5 1.5 0 0 0 3 0"/>
+        </svg>
+      </div>
+      <div>
+        <p class="item-title">Notifications</p>
+        <p class="item-sub">SMS, email and push alerts</p>
+      </div>
+    </div>
+    <div class="item-arrow">›</div>
+  </div>
+
+  <div class="settings-item">
+    <div class="item-left">
+      <div class="item-icon">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+             stroke="#085041" stroke-width="1.4" stroke-linecap="round">
+          <rect x="2" y="3" width="11" height="9" rx="1.2"/>
+          <path d="M5 3V2M10 3V2M2 7h11"/>
+        </svg>
+      </div>
+      <div>
+        <p class="item-title">Linked devices</p>
+        <p class="item-sub">Devices with account access</p>
+      </div>
+    </div>
+    <div class="item-arrow">›</div>
+  </div>
+</div>

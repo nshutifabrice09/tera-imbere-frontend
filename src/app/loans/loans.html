@@ -1,1 +1,56 @@
-<p>loans works!</p>
+
+<div class="page-header">
+  <h2>Loans</h2>
+  <p>View and manage your active loans</p>
+</div>
+
+@if (loading) {
+  <p class="loading">Loading loans...</p>
+}
+
+@if (!loading) {
+  @for (loan of loans; track loan.id) {
+    <div class="loan-card">
+      <div class="loan-top">
+        <div>
+          <div class="loan-type">{{ loan.type }}</div>
+          <div class="loan-date">Disbursed {{ loan.disbursedDate }}</div>
+        </div>
+        <span [class]="'loan-badge ' + loan.status">
+          {{ loan.status | titlecase }}
+        </span>
+      </div>
+
+      <div class="loan-stats">
+        <div>
+          <small>Original amount</small>
+          <span>{{ banking.formatRWF(loan.originalAmount) }}</span>
+        </div>
+        <div>
+          <small>Outstanding</small>
+          <span>{{ banking.formatRWF(loan.outstanding) }}</span>
+        </div>
+        <div>
+          <small>Interest rate</small>
+          <span>{{ loan.interestRate }}% p.a.</span>
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill"
+             [style.width.%]="repaidPercent(loan)">
+        </div>
+      </div>
+      <div class="progress-meta">
+        <span>{{ repaidPercent(loan) }}% repaid</span>
+        <span>Next: {{ banking.formatRWF(loan.nextPaymentAmount) }} — {{ loan.nextPaymentDate }}</span>
+      </div>
+    </div>
+  }
+
+  @empty {
+    <p class="empty-state">No active loans.</p>
+  }
+
+  <button class="apply-btn">Apply for a new loan</button>
+}

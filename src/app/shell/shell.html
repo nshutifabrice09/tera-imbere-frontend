@@ -1,6 +1,9 @@
 <div class="app-layout">
 
-  <div class="sidebar-overlay" [class.visible]="drawerOpen()" (click)="closeDrawer()"></div>
+  <div class="sidebar-overlay"
+       [class.visible]="drawerOpen()"
+       (click)="closeDrawer()">
+  </div>
 
   <aside class="sidebar" [class.drawer-open]="drawerOpen()">
     <div class="s-logo">
@@ -17,18 +20,18 @@
     </div>
 
     <nav class="s-nav">
-      <a *ngFor="let item of nav"
-         [routerLink]="item.route"
-         routerLinkActive="active"
-         class="s-item"
-         (click)="closeDrawer()">
-        <ti-nav-icon [route]="item.route"></ti-nav-icon>
-        <span class="s-label">{{ item.label }}</span>
-      </a>
+      @for (item of navItems; track item.route) {
+        <a [routerLink]="item.route"
+           routerLinkActive="active"
+           class="s-item"
+           (click)="closeDrawer()">
+          {{ item.label }}
+        </a>
+      }
     </nav>
 
     <div class="s-footer">
-      <ng-container *ngIf="banking.currentUser() as user">
+      @if (banking.currentUser(); as user) {
         <div class="user-row">
           <div class="avatar-sm">{{ user.initials }}</div>
           <div class="user-info">
@@ -36,7 +39,7 @@
             <span class="user-type">{{ user.accountType }}</span>
           </div>
         </div>
-      </ng-container>
+      }
       <button class="sign-out-btn" (click)="logout()">Sign out</button>
     </div>
   </aside>
@@ -44,16 +47,18 @@
   <div class="main-area">
     <header class="topbar">
       <button class="hamburger" (click)="toggleDrawer()" aria-label="Open menu">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+             stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <path d="M2 4.5h12M2 8h12M2 11.5h12"/>
         </svg>
       </button>
       <span class="page-title">
-        {{ nav | titleByRoute : router.url }}
+        {{ navItems | titleByRoute : router.url }}
       </span>
       <div class="topbar-right">
-        <span class="topbar-date">{{ today }}</span>
-        <div class="avatar" *ngIf="banking.currentUser() as user">{{ user.initials }}</div>
+        @if (banking.currentUser(); as user) {
+          <div class="avatar">{{ user.initials }}</div>
+        }
       </div>
     </header>
 
@@ -61,4 +66,5 @@
       <router-outlet></router-outlet>
     </main>
   </div>
+
 </div>

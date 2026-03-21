@@ -7,32 +7,32 @@ export const routes: Routes = [
   },
   {
     path: '',
-    loadComponent: () => import('./shell/shell.component').then(m => m.ShellComponent),
+    loadComponent: () => import('./shell/shell').then(m => m.ShellComponent),
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
-        loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent)
+        loadComponent: () => import('./dashboard/dashboard').then(m => m.DashboardComponent)
       },
       {
         path: 'accounts',
-        loadComponent: () => import('./accounts/accounts.component').then(m => m.AccountsComponent)
+        loadComponent: () => import('./accounts/accounts').then(m => m.AccountsComponent)
       },
       {
         path: 'transactions',
-        loadComponent: () => import('./transactions/transactions.component').then(m => m.TransactionsComponent)
+        loadComponent: () => import('./transactions/transactions').then(m => m.TransactionsComponent)
       },
       {
         path: 'transfer',
-        loadComponent: () => import('./transfer/transfer.component').then(m => m.TransferComponent)
+        loadComponent: () => import('./transfer/transfer').then(m => m.TransferComponent)
       },
       {
         path: 'loans',
-        loadComponent: () => import('./loans/loans.component').then(m => m.LoansComponent)
+        loadComponent: () => import('./loans/loans').then(m => m.LoansComponent)
       },
       {
         path: 'settings',
-        loadComponent: () => import('./settings/settings.component').then(m => m.SettingsComponent)
+        loadComponent: () => import('./settings/settings').then(m => m.SettingsComponent)
       },
     ]
   },
