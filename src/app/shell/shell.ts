@@ -2,11 +2,12 @@ import { Component, signal, HostListener } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BankingService } from '../core/service/banking.service';
+import { TitleByRoutePipe } from './title-by-route-pipe';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TitleByRoutePipe],
   templateUrl: './shell.html',
   styleUrl: './shell.scss'
 })
@@ -34,4 +35,5 @@ export class ShellComponent {
     this.banking.logout();
     this.router.navigate(['/login']);
   }
+
 }
