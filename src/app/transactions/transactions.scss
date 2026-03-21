@@ -1,0 +1,54 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  h2 { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  select {
+    font-size: 12px;
+    padding: 7px 28px 7px 10px;
+    border: 0.5px solid rgba(0,0,0,0.15);
+    border-radius: 7px;
+    background: #fff;
+    color: #1a1a1a;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    outline: none;
+
+    &:focus { border-color: #1D9E75; }
+  }
+}
+
+.loading {
+  font-size: 13px;
+  color: #888;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.tx-list {
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}

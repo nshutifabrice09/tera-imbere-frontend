@@ -1,1 +1,77 @@
-<p>transfer works!</p>
+<div class="page-header">
+  <h2>Send money</h2>
+  <p>Transfer funds to any Tera Imbere or external account</p>
+</div>
+
+@if (!success) {
+  <div class="form-card">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="form-group">
+        <label>From account</label>
+        <select formControlName="fromAccountId">
+          @for (acc of accounts; track acc.id) {
+            <option [value]="acc.id">
+              {{ acc.type | titlecase }} — {{ banking.formatRWF(acc.balance) }}
+            </option>
+          }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Recipient account number</label>
+        <input type="text" formControlName="toAccountNumber"
+               placeholder="e.g. 100-XXXX-XXXX-01">
+      </div>
+
+      <div class="form-group">
+        <label>Recipient name</label>
+        <input type="text" formControlName="recipientName"
+               placeholder="Full name">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Amount (RWF)</label>
+          <input type="number" formControlName="amount" placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>Transfer type</label>
+          <select formControlName="transferType">
+            <option value="internal">Internal</option>
+            <option value="rtgs">RTGS</option>
+            <option value="mobile_money">Mobile Money</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description (optional)</label>
+        <input type="text" formControlName="description"
+               placeholder="e.g. Rent payment">
+      </div>
+
+      <button type="submit" class="primary-btn"
+              [disabled]="form.invalid || loading">
+        {{ loading ? 'Processing...' : 'Confirm transfer' }}
+      </button>
+
+    </form>
+  </div>
+}
+
+@if (success) {
+  <div class="success-card">
+    <div class="success-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="#0F6E56" stroke-width="2" stroke-linecap="round">
+        <path d="M20 6L9 17l-5-5"/>
+      </svg>
+    </div>
+    <h3>Transfer successful</h3>
+    <p class="ref">Reference: <strong>{{ referenceId }}</strong></p>
+    <button class="secondary-btn" (click)="reset()">
+      Make another transfer
+    </button>
+  </div>
+}

@@ -12,8 +12,8 @@ import { Account } from '../core/models';
   styleUrl: './transfer.scss'
 })
 export class TransferComponent implements OnInit {
-  private fb      = inject(FormBuilder);
-  public banking  = inject(BankingService);
+  private fb     = inject(FormBuilder);
+  public banking = inject(BankingService);
 
   accounts: Account[] = [];
   loading     = false;
@@ -30,10 +30,12 @@ export class TransferComponent implements OnInit {
   });
 
   ngOnInit() {
-    this.banking.getAccounts().subscribe(accs => {
-      this.accounts = accs.filter(a => a.status === 'active');
-      if (this.accounts[0]) {
-        this.form.patchValue({ fromAccountId: this.accounts[0].id });
+    this.banking.getAccounts().subscribe({
+      next: accs => {
+        this.accounts = accs.filter(a => a.status === 'active');
+        if (this.accounts[0]) {
+          this.form.patchValue({ fromAccountId: this.accounts[0].id });
+        }
       }
     });
   }

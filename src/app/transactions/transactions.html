@@ -1,1 +1,30 @@
-<p>transactions works!</p>
+<div class="page-header">
+  <h2>Transactions</h2>
+  <div class="filters">
+    <select [(ngModel)]="typeFilter">
+      <option value="">All types</option>
+      <option value="credit">Credits</option>
+      <option value="debit">Debits</option>
+    </select>
+    <select>
+      <option>This month</option>
+      <option>Last month</option>
+      <option>Last 3 months</option>
+    </select>
+  </div>
+</div>
+
+@if (loading) {
+  <p class="loading">Loading transactions...</p>
+}
+
+@if (!loading) {
+  <div class="tx-list">
+    @for (tx of filtered(); track tx.id) {
+      <app-transaction-row [tx]="tx" />
+    }
+    @empty {
+      <p class="empty-state">No transactions found.</p>
+    }
+  </div>
+}
