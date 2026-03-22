@@ -3,7 +3,7 @@
   align-items: center;
   gap: 11px;
   padding: 11px 15px;
-  border-bottom: 0.5px solid rgba(0,0,0,0.07);
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
 
   &:last-child { border-bottom: none; }
 }
@@ -25,7 +25,7 @@
   .tx-desc {
     font-size: 13px;
     font-weight: 500;
-    color: #1a1a1a;
+    color: #e8e8e8;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -45,8 +45,8 @@
   .tx-amount {
     font-size: 13px;
     font-weight: 500;
-    &.credit { color: #0F6E56; }
-    &.debit  { color: #c0392b; }
+    &.credit { color: #1D9E75; }
+    &.debit  { color: #e05252; }
   }
 
   .tx-badge {
@@ -55,8 +55,8 @@
     border-radius: 5px;
     display: inline-block;
     margin-top: 2px;
-    &.credit { background: #e1f5ee; color: #0F6E56; }
-    &.debit  { background: #fdecea; color: #c0392b; }
+    &.credit { background: rgba(29,158,117,0.15); color: #1D9E75; }
+    &.debit  { background: rgba(224,82,82,0.15);  color: #e05252; }
   }
 }
 

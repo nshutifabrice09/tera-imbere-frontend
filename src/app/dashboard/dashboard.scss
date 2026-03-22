@@ -32,18 +32,19 @@
 }
 
 .stat-card {
-  background: #f0efea;
+  background: #1a1a1a;
   border-radius: 8px;
   padding: 13px 14px;
+  border: 0.5px solid rgba(255,255,255,0.06);
 
-  .stat-label { font-size: 12px; color: #666; margin-bottom: 3px; }
-  .stat-val   { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+  .stat-label { font-size: 12px; color: #aaa; margin-bottom: 3px; }
+  .stat-val   { font-size: 16px; font-weight: 500; color: #e8e8e8; }
 
   .stat-delta {
     font-size: 11px;
     margin-top: 3px;
-    &.positive { color: #0F6E56; }
-    &.negative { color: #c0392b; }
+    &.positive { color: #1D9E75; }
+    &.negative { color: #e05252; }
     &.muted    { color: #888; }
   }
 }
@@ -58,23 +59,23 @@
 }
 
 .qa-item {
-  background: #fff;
-  border: 0.5px solid rgba(0,0,0,0.1);
+  background: #1a1a1a;
+  border: 0.5px solid rgba(255,255,255,0.08);
   border-radius: 10px;
   padding: 12px 8px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  color: #555;
+  color: #aaa;
   font-size: 12px;
 
-  &:hover { background: #f5f5f3; }
+  &:hover { background: #222; }
 
   .qa-icon {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #E1F5EE;
+    background: rgba(93,202,165,0.15);
     margin: 0 auto 7px;
     display: flex;
     align-items: center;
@@ -88,13 +89,13 @@
   justify-content: space-between;
   margin-bottom: 10px;
 
-  h3 { font-size: 14px; font-weight: 500; color: #1a1a1a; }
-  a  { font-size: 12px; color: #0F6E56; text-decoration: none; }
+  h3 { font-size: 14px; font-weight: 500; color: #e8e8e8; }
+  a  { font-size: 12px; color: #1D9E75; text-decoration: none; }
 }
 
 .tx-list {
-  background: #fff;
-  border: 0.5px solid rgba(0,0,0,0.1);
+  background: #1a1a1a;
+  border: 0.5px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   overflow: hidden;
 }

@@ -25,7 +25,12 @@
            routerLinkActive="active"
            class="s-item"
            (click)="closeDrawer()">
-          {{ item.label }}
+          <svg width="15" height="15" viewBox="0 0 14 14" fill="none"
+               stroke="currentColor" stroke-width="1.3"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path [attr.d]="item.icon"/>
+          </svg>
+          <span>{{ item.label }}</span>
         </a>
       }
     </nav>
