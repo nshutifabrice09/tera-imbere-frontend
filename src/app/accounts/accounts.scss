@@ -1,13 +1,6 @@
-.page-header {
-  margin-bottom: 20px;
-
-  h2 { font-size: 16px; font-weight: 500; color: #1a1a1a; }
-  p  { font-size: 13px; color: #888; margin-top: 3px; }
-}
-
 .loading {
   font-size: 13px;
-  color: #888;
+  color: #aaa;
   padding: 24px 0;
   text-align: center;
 }
@@ -23,8 +16,8 @@
 }
 
 .acc-card {
-  background: #fff;
-  border: 0.5px solid rgba(0,0,0,0.1);
+  background: #1a1a1a;
+  border: 0.5px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   padding: 16px;
 
@@ -35,7 +28,7 @@
 
   .acc-number {
     font-size: 11px;
-    color: #aaa;
+    color: #666;
     font-family: monospace;
     margin-top: 3px;
   }
@@ -43,7 +36,7 @@
   .acc-balance {
     font-size: 20px;
     font-weight: 500;
-    color: #1a1a1a;
+    color: #ffffff;
     margin-top: 10px;
     margin-bottom: 8px;
   }
@@ -54,8 +47,8 @@
     border-radius: 6px;
     display: inline-block;
 
-    &.active   { background: #e1f5ee; color: #0F6E56; }
-    &.inactive { background: #f0efea; color: #888; }
+    &.active   { background: rgba(29,158,117,0.15); color: #1D9E75; }
+    &.inactive { background: rgba(255,255,255,0.06); color: #888; }
   }
 }
 
@@ -66,18 +59,19 @@
   justify-content: center;
   gap: 8px;
   border-style: dashed;
+  border-color: rgba(255,255,255,0.1);
   min-height: 120px;
   cursor: pointer;
   color: #888;
   font-size: 13px;
 
-  &:hover { background: #f5f5f3; }
+  &:hover { background: #222; }
 
   .add-icon {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: #f0efea;
+    background: rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
     justify-content: center;
